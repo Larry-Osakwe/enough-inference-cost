@@ -47,10 +47,20 @@ are about to lapse, and output above 60% of spend.
 ## Prices
 
 Rates live in [`models.json`](./models.json) as data, so a correction is a
-reviewable change rather than a code edit. Every number is a published
-first-party rate; nothing is estimated. Promotional pricing carries its end
-date and `ratesFor()` stops applying it on that date without anyone
-intervening.
+reviewable change rather than a code edit. Nothing here is estimated: every
+number is a published rate from the provider or from a community dataset,
+and each entry says which. Promotional pricing carries its end date and
+`ratesFor()` stops applying it on that date without anyone intervening.
+
+Each entry carries a `source`. `first-party` means the rate was read off the
+provider's own pricing page; `community` means it came from the LiteLLM dataset
+and still needs that check. `minCacheablePrefix` is `0` where the model's
+minimum has not been confirmed, which only disables the below-minimum warning.
+
+The table is curated, not exhaustive: roughly two dozen models that are live
+candidates for a placement decision, no dated snapshots, no previews, no
+fine-tunes, and one representative host per open-weight model. Anything else is
+covered by the rate-override fields on the calculator.
 
 **Found a wrong price?** Open a pull request against `models.json` with a link
 to the provider's pricing page. That is the fastest way to fix it for everyone.
