@@ -1,0 +1,42 @@
+name: pricing watch
+
+on:
+  schedule:
+    - cron: "0 14 * * 1" # Mondays, 14:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Compare against the pricing feed
+        id: check
+        run: |
+          node scripts/check-pricing.mjs
+          if [ -f pricing-diff.md ]; then echo "drift=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Open a pull request with the diff
+        if: steps.check.outputs.drift == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="pricing/$(date -u +%Y-%m-%d)"
+          git config user.name "pricing watch"
+          git config user.email "actions@github.com"
+          git checkout -b "$BRANCH"
+          git add models.json
+          git commit -m "prices: drift against the LiteLLM feed"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --title "Price drift, $(date -u +%Y-%m-%d)" \
+            --body-file pricing-diff.md \
+            --base main --head "$BRANCH"

@@ -1,0 +1,24 @@
+{
+  "name": "@enough/inference-cost",
+  "version": "0.1.0",
+  "description": "Inference cost arithmetic and a published-rate model table: caching, batching, tiering, and self-host break-even.",
+  "license": "MIT",
+  "author": "Larry Osakwe",
+  "repository": "github:Larry-Osakwe/enough-inference-cost",
+  "type": "module",
+  "main": "./src/inferenceCost.ts",
+  "types": "./src/inferenceCost.ts",
+  "exports": {
+    ".": "./src/inferenceCost.ts",
+    "./models.json": "./models.json"
+  },
+  "files": ["src", "models.json"],
+  "scripts": {
+    "test": "vitest run",
+    "check:pricing": "node scripts/check-pricing.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "vitest": "^4.1.8"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "claude-fable-5": {
+    "inputPerMTok": 10,
+    "outputPerMTok": 50,
+    "contextWindow": 1000000,
+    "minCacheablePrefix": 512
+  },
+  "claude-opus-5": {
+    "inputPerMTok": 5,
+    "outputPerMTok": 25,
+    "contextWindow": 1000000,
+    "minCacheablePrefix": 512
+  },
+  "claude-opus-4-8": {
+    "inputPerMTok": 5,
+    "outputPerMTok": 25,
+    "contextWindow": 1000000,
+    "minCacheablePrefix": 1024
+  },
+  "claude-opus-4-7": {
+    "inputPerMTok": 5,
+    "outputPerMTok": 25,
+    "contextWindow": 1000000,
+    "minCacheablePrefix": 2048
+  },
+  "claude-opus-4-6": {
+    "inputPerMTok": 5,
+    "outputPerMTok": 25,
+    "contextWindow": 1000000,
+    "minCacheablePrefix": 4096
+  },
+  "claude-sonnet-5": {
+    "inputPerMTok": 3,
+    "outputPerMTok": 15,
+    "contextWindow": 1000000,
+    "minCacheablePrefix": 1024,
+    "introPricing": {
+      "inputPerMTok": 2,
+      "outputPerMTok": 10,
+      "endsOn": "2026-08-31"
+    }
+  },
+  "claude-sonnet-4-6": {
+    "inputPerMTok": 3,
+    "outputPerMTok": 15,
+    "contextWindow": 1000000,
+    "minCacheablePrefix": 1024
+  },
+  "claude-haiku-4-5": {
+    "inputPerMTok": 1,
+    "outputPerMTok": 5,
+    "contextWindow": 200000,
+    "minCacheablePrefix": 4096
+  }
+}
