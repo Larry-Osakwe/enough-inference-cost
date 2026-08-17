@@ -28,6 +28,14 @@ export interface ModelPricing {
   contextWindow: number;
   /** Minimum cacheable prefix. Below this, cache_control silently no-ops. */
   minCacheablePrefix: number;
+  /** Who serves it. Used to group the model list. */
+  provider?: string;
+  /**
+   * `first-party` means the rate was read off the provider's own pricing page.
+   * `community` means it came from the LiteLLM dataset and still needs that
+   * check. Anything published as fact should be first-party.
+   */
+  source?: "first-party" | "community";
   /** Set when the current rate is promotional. */
   introPricing?: {
     inputPerMTok: number;
