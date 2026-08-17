@@ -51,7 +51,7 @@ import modelsJson from "../models.json";
  * Published first-party rates. The data lives in models.json so a price
  * correction is a reviewable data change, not a code change.
  */
-export const MODELS: Record<string, ModelPricing> = modelsJson;
+export const MODELS = modelsJson as unknown as Record<string, ModelPricing>;
 
 export type ModelId = string;
 
