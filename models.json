@@ -23,38 +23,17 @@
     "provider": "Anthropic",
     "source": "first-party"
   },
-  "claude-opus-4-7": {
-    "inputPerMTok": 5,
-    "outputPerMTok": 25,
-    "contextWindow": 1000000,
-    "minCacheablePrefix": 2048,
-    "provider": "Anthropic",
-    "source": "first-party"
-  },
-  "claude-opus-4-6": {
-    "inputPerMTok": 5,
-    "outputPerMTok": 25,
-    "contextWindow": 1000000,
-    "minCacheablePrefix": 4096,
-    "provider": "Anthropic",
-    "source": "first-party"
-  },
-  "claude-sonnet-5": {
+  "claude-sonnet-4-6": {
     "inputPerMTok": 3,
     "outputPerMTok": 15,
     "contextWindow": 1000000,
     "minCacheablePrefix": 1024,
-    "introPricing": {
-      "inputPerMTok": 2,
-      "outputPerMTok": 10,
-      "endsOn": "2026-08-31"
-    },
     "provider": "Anthropic",
     "source": "first-party"
   },
-  "claude-sonnet-4-6": {
-    "inputPerMTok": 3,
-    "outputPerMTok": 15,
+  "claude-sonnet-5": {
+    "inputPerMTok": 2,
+    "outputPerMTok": 10,
     "contextWindow": 1000000,
     "minCacheablePrefix": 1024,
     "provider": "Anthropic",
@@ -68,53 +47,90 @@
     "provider": "Anthropic",
     "source": "first-party"
   },
-  "gpt-5.6": {
+  "gpt-5.6-sol": {
     "inputPerMTok": 5,
     "outputPerMTok": 30,
     "contextWindow": 1050000,
     "minCacheablePrefix": 0,
     "provider": "OpenAI",
-    "source": "community"
+    "source": "first-party"
   },
-  "gpt-4o": {
-    "inputPerMTok": 2.5,
-    "outputPerMTok": 10,
-    "contextWindow": 128000,
+  "gpt-5.6-terra": {
+    "inputPerMTok": 2,
+    "outputPerMTok": 12,
+    "contextWindow": 1050000,
     "minCacheablePrefix": 0,
     "provider": "OpenAI",
-    "source": "community"
+    "source": "first-party"
   },
-  "gemini-2.5-pro": {
-    "inputPerMTok": 1.25,
-    "outputPerMTok": 10,
+  "gpt-5.4-mini": {
+    "inputPerMTok": 0.75,
+    "outputPerMTok": 4.5,
+    "contextWindow": 272000,
+    "minCacheablePrefix": 0,
+    "provider": "OpenAI",
+    "source": "first-party"
+  },
+  "gpt-5.4-nano": {
+    "inputPerMTok": 0.2,
+    "outputPerMTok": 1.25,
+    "contextWindow": 272000,
+    "minCacheablePrefix": 0,
+    "provider": "OpenAI",
+    "source": "first-party"
+  },
+  "gpt-5.6-luna": {
+    "inputPerMTok": 0.2,
+    "outputPerMTok": 1.2,
+    "contextWindow": 1050000,
+    "minCacheablePrefix": 0,
+    "provider": "OpenAI",
+    "source": "first-party"
+  },
+  "gemini-3.1-pro-preview": {
+    "inputPerMTok": 2,
+    "outputPerMTok": 12,
     "contextWindow": 1048576,
     "minCacheablePrefix": 0,
     "provider": "Google",
-    "source": "community"
+    "source": "first-party"
+  },
+  "gemini-3.5-flash": {
+    "inputPerMTok": 1.5,
+    "outputPerMTok": 9,
+    "contextWindow": 1048576,
+    "minCacheablePrefix": 0,
+    "provider": "Google",
+    "source": "first-party"
   },
   "gemini-3.7-flash": {
-    "inputPerMTok": 0.75,
-    "outputPerMTok": 3.75,
+    "inputPerMTok": 1.5,
+    "outputPerMTok": 7.5,
     "contextWindow": 1048576,
     "minCacheablePrefix": 0,
+    "introPricing": {
+      "inputPerMTok": 0.75,
+      "outputPerMTok": 3.75,
+      "endsOn": "2026-12-31"
+    },
     "provider": "Google",
-    "source": "community"
+    "source": "first-party"
   },
-  "gemini-2.5-flash": {
+  "gemini-3.5-flash-lite": {
     "inputPerMTok": 0.3,
     "outputPerMTok": 2.5,
     "contextWindow": 1048576,
     "minCacheablePrefix": 0,
     "provider": "Google",
-    "source": "community"
+    "source": "first-party"
   },
-  "grok-4": {
-    "inputPerMTok": 3,
-    "outputPerMTok": 15,
-    "contextWindow": 256000,
+  "grok-4.6": {
+    "inputPerMTok": 2,
+    "outputPerMTok": 6,
+    "contextWindow": 500000,
     "minCacheablePrefix": 0,
     "provider": "xAI",
-    "source": "community"
+    "source": "first-party"
   },
   "grok-4.5": {
     "inputPerMTok": 2,
@@ -122,60 +138,68 @@
     "contextWindow": 500000,
     "minCacheablePrefix": 0,
     "provider": "xAI",
-    "source": "community"
+    "source": "first-party"
   },
   "mistral-large-3": {
     "inputPerMTok": 0.5,
     "outputPerMTok": 1.5,
-    "contextWindow": 262144,
+    "contextWindow": 256000,
     "minCacheablePrefix": 0,
     "provider": "Mistral",
     "source": "community"
   },
-  "deepseek-r1": {
-    "inputPerMTok": 0.55,
-    "outputPerMTok": 2.19,
-    "contextWindow": 65536,
+  "deepseek-v4-pro": {
+    "inputPerMTok": 0.435,
+    "outputPerMTok": 0.87,
+    "contextWindow": 1000000,
     "minCacheablePrefix": 0,
     "provider": "DeepSeek",
     "source": "community"
   },
-  "deepseek-chat": {
-    "inputPerMTok": 0.28,
-    "outputPerMTok": 0.42,
-    "contextWindow": 131072,
+  "deepseek-v4-flash": {
+    "inputPerMTok": 0.14,
+    "outputPerMTok": 0.28,
+    "contextWindow": 1000000,
     "minCacheablePrefix": 0,
     "provider": "DeepSeek",
     "source": "community"
   },
-  "deepseek-v3.2": {
-    "inputPerMTok": 0.28,
-    "outputPerMTok": 0.4,
-    "contextWindow": 163840,
-    "minCacheablePrefix": 0,
-    "provider": "DeepSeek",
-    "source": "community"
-  },
-  "kimi-k2-instruct": {
-    "inputPerMTok": 1,
-    "outputPerMTok": 3,
-    "contextWindow": 131072,
+  "kimi-k3": {
+    "inputPerMTok": 3.3,
+    "outputPerMTok": 16.5,
+    "contextWindow": 1048576,
     "minCacheablePrefix": 0,
     "provider": "Moonshot",
     "source": "community"
   },
-  "qwen3-coder-480b": {
+  "glm-5.2": {
+    "inputPerMTok": 1.4,
+    "outputPerMTok": 4.4,
+    "contextWindow": 1048576,
+    "minCacheablePrefix": 0,
+    "provider": "Z.ai",
+    "source": "community"
+  },
+  "glm-5-code": {
+    "inputPerMTok": 1.2,
+    "outputPerMTok": 5,
+    "contextWindow": 200000,
+    "minCacheablePrefix": 0,
+    "provider": "Z.ai",
+    "source": "community"
+  },
+  "qwen3.8-max": {
     "inputPerMTok": 2,
-    "outputPerMTok": 2,
-    "contextWindow": 262144,
+    "outputPerMTok": 6,
+    "contextWindow": 991808,
     "minCacheablePrefix": 0,
     "provider": "Qwen",
     "source": "community"
   },
-  "llama-3.3-70b": {
-    "inputPerMTok": 0.59,
-    "outputPerMTok": 0.79,
-    "contextWindow": 131072,
+  "muse-spark-1.2": {
+    "inputPerMTok": 1.25,
+    "outputPerMTok": 4.25,
+    "contextWindow": 1048576,
     "minCacheablePrefix": 0,
     "provider": "Meta",
     "source": "community"
