@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 jobs:
@@ -29,14 +30,29 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
           BRANCH="pricing/$(date -u +%Y-%m-%d)"
           git config user.name "pricing watch"
           git config user.email "actions@github.com"
-          git checkout -b "$BRANCH"
+          git checkout -B "$BRANCH"
           git add models.json
           git commit -m "prices: drift against the LiteLLM feed"
-          git push -u origin "$BRANCH"
-          gh pr create \
-            --title "Price drift, $(date -u +%Y-%m-%d)" \
-            --body-file pricing-diff.md \
-            --base main --head "$BRANCH"
+          git push -u --force-with-lease origin "$BRANCH"
+
+          # Opening the PR needs the repo's "Allow GitHub Actions to create and
+          # approve pull requests" setting, which is off by default and silently
+          # outranks the pull-requests: write permission above. If it is ever
+          # switched back off, fall back to an issue so a price move can't sit
+          # unnoticed on a branch nobody looks at.
+          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
+            echo "PR already open for $BRANCH"
+          elif ! gh pr create \
+              --title "Price drift, $(date -u +%Y-%m-%d)" \
+              --body-file pricing-diff.md \
+              --base main --head "$BRANCH"; then
+            echo "::warning::Could not open a PR. Check Settings > Actions > General > Workflow permissions."
+            gh issue create \
+              --title "Price drift, $(date -u +%Y-%m-%d) (PR blocked)" \
+              --body-file pricing-diff.md
+            exit 1
+          fi
