@@ -154,7 +154,7 @@
     "contextWindow": 1000000,
     "minCacheablePrefix": 0,
     "provider": "DeepSeek",
-    "source": "community"
+    "source": "first-party"
   },
   "deepseek-v4-flash": {
     "inputPerMTok": 0.44,
@@ -162,7 +162,7 @@
     "contextWindow": 1000000,
     "minCacheablePrefix": 0,
     "provider": "DeepSeek",
-    "source": "community"
+    "source": "first-party"
   },
   "kimi-k3": {
     "inputPerMTok": 3.3,
