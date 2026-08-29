@@ -48,9 +48,9 @@
     "source": "first-party"
   },
   "gpt-5.6-sol": {
-    "inputPerMTok": 5,
-    "outputPerMTok": 30,
-    "contextWindow": 1050000,
+    "inputPerMTok": 4,
+    "outputPerMTok": 20,
+    "contextWindow": 922000,
     "minCacheablePrefix": 0,
     "provider": "OpenAI",
     "source": "first-party"
@@ -58,7 +58,7 @@
   "gpt-5.6-terra": {
     "inputPerMTok": 2,
     "outputPerMTok": 12,
-    "contextWindow": 1050000,
+    "contextWindow": 922000,
     "minCacheablePrefix": 0,
     "provider": "OpenAI",
     "source": "first-party"
@@ -82,7 +82,7 @@
   "gpt-5.6-luna": {
     "inputPerMTok": 0.2,
     "outputPerMTok": 1.2,
-    "contextWindow": 1050000,
+    "contextWindow": 922000,
     "minCacheablePrefix": 0,
     "provider": "OpenAI",
     "source": "first-party"
@@ -149,16 +149,16 @@
     "source": "community"
   },
   "deepseek-v4-pro": {
-    "inputPerMTok": 0.435,
-    "outputPerMTok": 0.87,
+    "inputPerMTok": 1.32,
+    "outputPerMTok": 3.96,
     "contextWindow": 1000000,
     "minCacheablePrefix": 0,
     "provider": "DeepSeek",
     "source": "community"
   },
   "deepseek-v4-flash": {
-    "inputPerMTok": 0.14,
-    "outputPerMTok": 0.28,
+    "inputPerMTok": 0.44,
+    "outputPerMTok": 1.32,
     "contextWindow": 1000000,
     "minCacheablePrefix": 0,
     "provider": "DeepSeek",
