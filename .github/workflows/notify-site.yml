@@ -1,0 +1,29 @@
+name: notify site
+
+# The site pins this package by commit, so a merge here changes nothing on
+# enough.engineering until the site moves its pin. Poke it so it can open
+# that PR straight away.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "models.json"
+      - "src/**"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tell the site there is a new module
+        env:
+          # A fine-grained PAT with Contents: read and write on Larry-Osakwe/enough.
+          # GITHUB_TOKEN cannot be used: it is scoped to this repository only.
+          GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::warning::No SITE_DISPATCH_TOKEN set, so the site was not notified. Its weekly bump job will pick this up within a week."
+            exit 0
+          fi
+          gh api -X POST /repos/Larry-Osakwe/enough/dispatches \
+            -f event_type=module-updated
+          echo "Dispatched to Larry-Osakwe/enough."
