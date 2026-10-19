@@ -157,8 +157,8 @@
     "source": "first-party"
   },
   "deepseek-v4-flash": {
-    "inputPerMTok": 0.44,
-    "outputPerMTok": 1.32,
+    "inputPerMTok": 0.3,
+    "outputPerMTok": 1.2,
     "contextWindow": 1000000,
     "minCacheablePrefix": 0,
     "provider": "DeepSeek",
